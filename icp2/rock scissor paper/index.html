@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Rock-Paper-Scissors</title>
+</head>
+
+<style>
+    #finalResult {
+        width: 320px;
+        height: auto;
+        padding: 10px;
+        border: 5px solid green;
+        margin: 0;
+        background-color: white;
+    }
+</style>
+
+<script>
+    //javascript function is defined
+    function rps() {
+        var userInput = $("#userInput").val();
+        $("#finalResult").hide();
+
+        if(userInput == null || userInput == ''){
+            alert("Input fields can't be empty")
+        }else{
+            <!-- Getting Random Choice -->
+            var randomChoice = Math.random();
+            // Based on the Random Choice hardcoding systems selection
+            if (randomChoice < 0.34) {
+                randomChoice = "rock";
+            } else if(randomChoice >= 0.34 && randomChoice <= 0.67) {
+                randomChoice = "paper";
+            } else {
+                randomChoice = "scissors";
+            }
+            // now comparing between user input and system choice and decides the output
+            var userInputLower = userInput.toLowerCase();
+            $("#finalResult").html("Your Choice : "+userInputLower.toUpperCase()+ "<br/> System Choice : "+randomChoice.toUpperCase()
+                +"<br/>");
+            // Tie
+            if(userInputLower == randomChoice){
+                $("#finalResult").append("<strong>It's a Tie..</strong>");
+            }else {
+                // Rock, Scissors Scenario
+                if (userInputLower == "rock") {
+                    if (randomChoice == "scissors") {
+                        $("#finalResult").append("<strong>You WON !!!</strong>");
+                    } else {
+                        $("#finalResult").append("<strong>You Lose</strong>");
+                    }
+                }
+                // Paper, Rock Scenario
+                if (userInputLower == "paper") {
+                    if (randomChoice == "rock") {
+                        $("#finalResult").append("<strong>You WON !!!</strong>");
+                    } else {
+                        $("#finalResult").append("<strong>You Lose</strong>");
+                    }
+                }
+                // Scissors, Paper scenario
+                if (userInputLower == "scissors") {
+                    if (randomChoice == "paper") {
+                        $("#finalResult").append("<strong>You WON !!!</strong>");
+                    } else {
+                        $("#finalResult").append("<strong>You Lose</strong>");
+                    }
+                }
+            }
+            $("#finalResult").show();
+        }
+    }
+</script>
+
+<!-- <body background="images/rockps.png" style="background-size: 1000px 600px;"> -->
+
+<!-- Rock beats Scissors, Scissors beats paper, Paper beats Rock -->
+
+<!-- Asking for User Choice through a Text Box -->
+<br/><br/>
+<div align="center" style="margin:80px auto" >
+
+    <label style="color: brown">Enter Your Input (Rock/Scissors/Paper) : </label>
+    <input type="text" id="userInput"/>
+
+    <!-- calling the javascript fucntion-->
+    <button onclick="javascript:rps()">Play Game !!</button>
+    <br/><br/><br/>
+    <div align="center" id="finalResult" style="display: none">
+    </div>
+</div>
+
+</body>
+</html>
