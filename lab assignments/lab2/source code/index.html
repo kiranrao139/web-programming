@@ -1,0 +1,76 @@
+<html>
+<head>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <link rel="stylesheet" href="style.css"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"/>
+</head>
+<style>
+    .btn-group button {
+        background-color: lightgreen; /* Green background */
+        border: 1px solid green; /* Green border */
+        color: white; /* White text */
+        padding: 10px 24px; /* Some padding */
+        cursor: pointer; /* Pointer/hand icon */
+        float: left; /* Float the buttons side by side */
+    }
+
+    /* Clear floats (clearfix hack) */
+    .btn-group:after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    .btn-group button:not(:last-child) {
+        border-right: none; /* Prevent double borders */
+    }
+
+    /* Add a background color on hover */
+    .btn-group button:hover {
+        background-color: lightskyblue;
+    }
+</style>
+<body>
+
+<div class="jumbotron center" ng-app="tictac" ng-controller="game">
+    <div class="">
+        <div class="container text-center">
+            <h3><b>Tic Toe Game</b></h3>
+            <small><em>ANGULAR JS EXAMPLE </em></small><br><br><hr>
+               //buton for ui
+                    <div class="btn-group">
+                        <button ng-bind ="name1" id="1" ng-click="first()">{{name1}}</button>
+                        <button ng-bind ="name2" id="2" ng-click="second()"></button>
+                        <button ng-bind ="name3" id="3" ng-click="third()"></button>
+                    </div>
+                    <br>
+                    <div class="btn-group">
+                        <button ng-bind ="name4" id="4" ng-click="fourth()"></button>
+                        <button ng-bind ="name5" id="5" ng-click="fifth()"></button>
+                        <button ng-bind ="name6" id="6" ng-click="sixth()"></button>
+                    </div>
+                    <br>
+                    <div class="btn-group">
+                        <button ng-bind ="name7" id="7" ng-click="seven()"></button>
+                        <button ng-bind ="name8" id="8" ng-click="eight()"></button>
+                        <button ng-bind ="name9" id="9" ng-click="nine()"></button>
+                    </div>
+
+        </div><br><br>
+        <p align="center">count:{{count}}</p>
+        <br>
+        <br>
+        <p align="center">Result:{{result}}</p>
+        <div ng-if="isLoading" class="loading">
+            <i class="fa fa-spinner fa-pulse"></i>
+        </div>
+    </div>
+
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>
