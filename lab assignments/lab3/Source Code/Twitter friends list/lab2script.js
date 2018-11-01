@@ -1,16 +1,16 @@
 angular.module('lab2App', ['ngSanitize'])
     .controller('lab2Controller', function($scope, $http, $location) {
 
-        $scope.getTwitterFriends = function (callback) {
-            // Hiding all errors first
-            $scope.errorText = "";
-            var twitterName = $scope.twitterName;
-            // Making Sure Input Text is Not empty
-            if (twitterName == null || $.trim(twitterName) == ''){
-                // Throw error
-                $scope.errorText = "Input Text should not be empty !!";
-                // Stop flow
-                return false;
+                $scope.getTwitterFriends = function (callback) {
+                    // Hiding all errors first
+                    $scope.errorText = "";
+                    var twitterName = $scope.twitterName;
+                    // Making Sure Input Text is Not empty
+                    if (twitterName == null || $.trim(twitterName) == ''){
+                        // Throw error
+                        $scope.errorText = "Input Text should not be empty !!";
+                        // Stop flow
+                        return false;
             }
 
                 $http.get('http://127.0.0.1:8080/get/'+twitterName)

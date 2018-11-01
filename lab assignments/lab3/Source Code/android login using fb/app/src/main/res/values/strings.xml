@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LabFinal</string>
+    <string name="facebook_app_id">275830269729811</string>
+    <string name="fb_login_protocol_scheme">fb275830269729811</string>
+</resources>
